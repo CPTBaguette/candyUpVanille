@@ -42,7 +42,7 @@
         height: 250px;
     }
 
-    #tt{
+    .tt{
         width: 100%;
         height: 50%;
         display: flex;
@@ -50,25 +50,163 @@
         align-items: flex-start;
     }
 
+
+    #panier{
+        display: flex;
+        width: 100%;
+        height: 100vh;
+        flex-direction: column;
+        
+    }
+
+
+    .item{
+        display: flex;
+        flex-direction: column;
+        width: 10vw;
+        height: 20vh;
+        color: aquamarine;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .itemI{
+        height: 250px;
+        width: 250px;
+    }
+    .itemT{
+        font-size: clamp(1rem, 2vw, 1.2rem);
+        font-weight: 700;
+        text-shadow: none;
+    }
+
+    .modal{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+
+    background:rgba(0,0,0,0.4);
+    backdrop-filter:blur(8px);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    z-index:9999;
+}
+
+.modal-content{
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    width:400px;
+
+    text-align:center;
+    justify-items: center;
+}
+
+.modal-content h2{
+    font-weight: bold;
+    font-size: larger;
+}
+
+.modal-content video{
+    margin-top: 20px;
+}
+
+
+.hidden{
+    display: none;
+}
+
+/* CSS */
+.modal-content button, .FB {
+  align-items: center;
+  background-clip: padding-box;
+  background-color: #004dc5;
+  border: 1px solid transparent;
+  border-radius: .25rem;
+  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: inline-flex;
+  font-family: 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  justify-content: center;
+  line-height: 1.25;
+  margin-top: 20px;
+  min-height: 3rem;
+  padding: calc(.875rem - 1px) calc(1.5rem - 1px);
+  position: relative;
+  text-decoration: none;
+  transition: all 250ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  vertical-align: baseline;
+  width: auto;
+}
+
+.modal-content button, .FB:hover,
+.modal-content button, .FB:focus {
+  background-color: #0957d6;
+  box-shadow: rgba(0, 0, 0, 0.1) 0 4px 12px;
+}
+
+.modal-content button, .FB:hover {
+  transform: translateY(-1px);
+}
+
+.modal-content button, .FB:active {
+  background-color: #0b357a;
+  box-shadow: rgba(0, 0, 0, .06) 0 2px 4px;
+  transform: translateY(0);
+}
+
+#modal-Image{
+    height: 200px;
+    width: 200px;
+}
+
   </style>
    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
  
 </head>
-<body>
+<body id="body">
     <div id="first"  >
         <h2 id="wow">Oh wow !</h2>
         <img id="troll" src="https://images.emojiterra.com/google/android-11/512px/1f643.png">
     </div>
 
-     <div id="tt" data-aos="zoom-out-down"
+     
 
-    data-aos-anchor-placement="top">
-        <p> test</p>
+    <div id="panier" data-aos="fade-up">
+        <div>
+            <p class="tt">clique sur les propostiions pour voir les descriptions et reserver</p>
+         </div>
+        <div id="left">
+
+        </div>
+        <div id="right" onclick="openModal('Where da hood, where da hood, where da hood at', 'testttt', 'https\:\/\/images.emojiterra.com/google/android-11/512px/1f643.png', null)">
+            <div class="item" >
+                <img class ="itemI" src="https://media.tenor.com/b1z2OK1skyIAAAAe/goofy-ahh.png">
+                <p class="itemT">test de texte</p>
+            </div>
+        </div>
     </div>
 
-
-
-
+    <div id="modal" class="modal hidden">
+        <div class="modal-content">
+            <img id="modal-Image">
+            <h2 id="modal-title">Temp Title</h2>
+            <p id="modal-text">Temp Text</p>
+            <button id="closeModal">Fermer</button>
+        </div>
+    </div>
   
   <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     
